@@ -2,8 +2,8 @@ package com.example.mynotes.view.activity
 
 import android.app.AlertDialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -36,19 +36,17 @@ class MainActivity : AppCompatActivity() {
 
         //When Add FAB is clicked
         add_fab.setOnClickListener {
-            val addIntent: Intent = Intent(applicationContext, AddNotes::class.java)
+            val addIntent = Intent(applicationContext, AddNotes::class.java)
             startActivity(addIntent)
         }
     }
 
-    fun showDialog(notes: Notes)
-    {
+    private fun showDialog(notes: Notes) {
         val items = arrayOf("Edit", "Delete")
 
         val alertBuilder = AlertDialog.Builder(this)
         alertBuilder.setItems(items) { dialog, which ->
-            when(which)
-            {
+            when (which) {
                 0 -> {
                     goToAdd(notes)
                 }
@@ -62,9 +60,8 @@ class MainActivity : AppCompatActivity() {
         alertBuilder.show()
     }
 
-    fun goToAdd(notes: Notes)
-    {
-        val addIntent: Intent = Intent(applicationContext, AddNotes::class.java)
+    private fun goToAdd(notes: Notes) {
+        val addIntent = Intent(applicationContext, AddNotes::class.java)
         addIntent.putExtra("Notes", notes)
         startActivity(addIntent)
     }

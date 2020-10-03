@@ -11,26 +11,22 @@ class NotesViewModel(application: Application) : AndroidViewModel(application) {
     private var notesLiveData: LiveData<List<Notes>>? = notesRepository.getNotes()
 
     //Insert notes
-    fun insertNotes(notes: Notes)
-    {
+    fun insertNotes(notes: Notes) {
         notesRepository.insertNotes(notes)
     }
 
     //Read notes
-    fun getNotes(): LiveData<List<Notes>>?
-    {
+    fun getNotes(): LiveData<List<Notes>>? {
         return notesLiveData
     }
 
     //Update notes
-    fun updateNotes(notes: Notes)
-    {
+    fun updateNotes(notes: Notes) {
         notesRepository.updateNotes(notes)
     }
 
     //Delete notes
-    fun deleteNotes(notes: Notes)
-    {
+    fun deleteNotes(notes: Notes) {
         notesRepository.deleteNotes(notes)
     }
 }
