@@ -10,13 +10,11 @@ import com.example.mynotes.model.`object`.Notes
 abstract class AppDatabase : RoomDatabase() {
     abstract fun notesDao(): NotesDao
 
-    companion object
-    {
+    companion object {
         private const val DB_NAME = "NOTES_DB"
         private var instance: AppDatabase? = null
 
-        fun getInstance(context: Context): AppDatabase?
-        {
+        fun getInstance(context: Context): AppDatabase? {
             synchronized(AppDatabase::class)
             {
                 instance = Room.databaseBuilder(context, AppDatabase::class.java, DB_NAME).build()
